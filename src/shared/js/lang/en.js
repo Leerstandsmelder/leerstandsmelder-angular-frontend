@@ -169,6 +169,7 @@ module.exports = {
         },
         hidden: 'Hidden',
         hidden_yes: 'Yes',
+        hidden_moderation: 'THis location will not be displayed right now. Contact your locale LM crew to display this entry',
         location: 'Location',
         location_photos: 'Photos for this location',
         location_plural: 'Locations',

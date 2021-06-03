@@ -13,7 +13,10 @@ div(layout="column" layout-gt-sm="row" layout-wrap layout-fill)
             +button_fab('actions.back','regionOverview()','md-secondary','fa-arrow-left','location')
             span(ng-if='mayEdit')
                 +button_fab('actions.edit','edit()','md-primary','fa-edit','location')
-        p
+        div(ng-if="location.hidden == true && mayEdit")
+          md-toast.md-success
+            div.md-toast-content {{ 'locations.hidden_moderation' | translate}}
+        p    
             strong {{location.title}}
             div(ng-if="location.demolished == true")
                 img(style="max-width:100%" src="/images/abgerissen.gif")
