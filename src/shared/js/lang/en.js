@@ -255,7 +255,7 @@ module.exports = {
     },
     site: {
         banned: 'Banned',
-        copyright_notice: '© 2018 Leerstandsmelder.de',
+        copyright_notice: '© 2021 Leerstandsmelder.de',
         map_notice: 'Maps: © OpenStreetMap contributors, ODbL 1.0.',
         lang: 'Language',
         lang_de: 'Deutsch',
