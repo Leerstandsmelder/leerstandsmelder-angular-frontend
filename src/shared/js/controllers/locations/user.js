@@ -47,9 +47,19 @@ var LocationsUserController = function ($scope, $q, $location, $mdDialog ,$trans
     };
 
     var columnDefs = [
+        {headerName: "", field: "hidden", width: 20, cellRenderer: function (params) {      // Function cell renderer
+                if (params.data.hidden) {
+                    return '<md-icon md-font-icon="fa-low-vision" class="fa fa-low-vision"></md-icon>';
+                } else {
+                    return '<md-icon md-font-icon="fa-crow" class="fa fa-crow"></md-icon>';
+                }
+            }
+        },
+
         {headerName: $filter('translate')("locations.title"), field: "title", width: 120, sort: 'asc' },
         {headerName: $filter('translate')("locations.street"), field: "street", width: 90},
         {headerName: $filter('translate')("locations.building_type"), field: "buildingType", width: 90, cellRenderer: $scope.translateFormatter},
+        {headerName: $filter('translate')("regions.region"), field: "region.title", width: 90 },
         {headerName: $filter('translate')("locations.owner"), field: "owner", width: 90, cellRenderer: $scope.translateFormatter},
         {headerName: $filter('translate')("author.updated"), field: "updated", width: 60, cellRenderer: $scope.dateFormatter},
         {headerName: $filter('translate')("author.created"), field: "created", width: 60, cellRenderer: $scope.dateFormatter},
@@ -68,7 +78,14 @@ var LocationsUserController = function ($scope, $q, $location, $mdDialog ,$trans
         }
     ];
 
+    function changeRowColor(params) {
+        if (params.data.hidden) {
+            return { 'background-color': 'lightgrey' };
+        }
+    }
+
     $scope.gridOptions.columnDefs =  columnDefs;
+    $scope.gridOptions.getRowStyle = changeRowColor;
     $scope.gridOptions.angularCompileRows = true;
 
     $scope.filterGrid = function() {
