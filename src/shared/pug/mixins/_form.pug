@@ -76,10 +76,11 @@ mixin input(field_type, field_key, field_i18n_key, resource_list, sys_val, no_la
             ng-model='files'
             ngf-accept="'image/*'"
             ngf-fix-orientation="true"
-            ngf-capture="'camera'"
             ng-show='!asset.disabled'
             ngf-keep="'distinct'"
             ngf-multiple='true'
+            ngf-include-dir='true'
+            ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
             multiple
             )
               span.fa.fa-file-o &nbsp;
