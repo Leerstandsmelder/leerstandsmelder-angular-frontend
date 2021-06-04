@@ -271,6 +271,11 @@ gulp.task('assets', function (env) {
                 return streamToPromise(stream);
             })
             .then(function () {
+                var stream = gulp.src(filesExist(['./src/shared/manifest.json']))
+                  .pipe(gulp.dest(destBase));
+                return streamToPromise(stream);
+            })
+            .then(function () {
                 var stream = gulp.src(filesExist(['./src/shared/static/md/*.md']))
                   .pipe(gulp.dest(destBase + 'static/'));
                 return streamToPromise(stream);
