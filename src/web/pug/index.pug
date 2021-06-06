@@ -1,3 +1,4 @@
+- var build = '?build=' + Date.now().toString()
 doctype html
 html(lang='en', ng-app='leerstandsmelder')
     head
@@ -10,8 +11,10 @@ html(lang='en', ng-app='leerstandsmelder')
         title Leerstandsmelder - Für mehr Transparenz und neue Möglichkeitsräume in der Stadt
         meta(name='description' content='Meldet Leerstände! Mit dem Leerstandsmelder können wir gemeinsam Informationen austauschen. Leerstände können auf der Leerstandskarte von allen NutzerInnen direkt und unkompliziert eingetragen werden.')
         link(rel="manifest" href="/manifest.json")
-        link(rel='stylesheet', href='/css/leerstandsmelder-frontend-deps.css?build=17102201')
-        link(rel='stylesheet', href='/css/leerstandsmelder-frontend-web.css?build=17102201')
+        link(rel="apple-touch-icon" href="/images/icons/ios/icon.png")
+        link(rel="apple-touch-startup-image" href="/images/splash/ios/Default~iphone.png")
+        link(rel='stylesheet', href='/css/leerstandsmelder-frontend-deps.css' + build)
+        link(rel='stylesheet', href='/css/leerstandsmelder-frontend-web.css' + build)
         style(type='text/css').
             .ng-cloak {
                 display: none !important;
@@ -39,6 +42,5 @@ html(lang='en', ng-app='leerstandsmelder')
                 a(href='/site/press') {{ 'site.subnav.press' | translate }}
         scripts
             include ../../shared/pug/partials/_js_dependencies
-            - var build = '?build=' + Date.now().toString()
             script(src='/js/leerstandsmelder-apiclient-web.js' + build)
             script(src='/js/leerstandsmelder-angular-frontend.min.js' + build)
