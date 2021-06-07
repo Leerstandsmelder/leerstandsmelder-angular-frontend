@@ -277,7 +277,12 @@ gulp.task('assets', function (env) {
                 return streamToPromise(stream);
             })
             .then(function () {
-                var stream = gulp.src(filesExist(['./src/shared/manifest.json']))
+                var stream = gulp.src(filesExist([
+                    './src/shared/manifest.json',
+                    './assets/favicon/apple-touch-icon.png',
+                    './assets/favicon/favicon.ico',
+                    './assets/favicon/browserconfig.xml'
+                ]))
                   .pipe(gulp.dest(destBase));
                 return streamToPromise(stream);
             })
