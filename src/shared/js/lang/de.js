@@ -171,7 +171,7 @@ module.exports = {
         },
         hidden: 'Ausgeblendet',
         hidden_yes: 'Ja',
-        hidden_moderation: 'Dieser Beitrag wird derzeit ausgeblendet. Wende dich an dein lokales Leerstandsmelder Kollektiv um diesen Eintrag freischalten zu lassen.',
+        hidden_moderation: 'Vielen Dank für Deine Meldung ! Der Beitrag wir in den nächsten Tagen freigeschaltet. Bitte bleib an dem Objekt dran und ergänze den Eintrag alle 3 Monate mit einem Kommentar, um Veränderungen oder Stillstand zu dokumentieren.',
         location: 'Leerstand',
         location_photos: 'Fotos zu diesem Leerstand',
         location_plural: 'Leerstände',
