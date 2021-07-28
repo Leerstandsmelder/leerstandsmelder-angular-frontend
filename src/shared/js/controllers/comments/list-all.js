@@ -24,26 +24,26 @@ var CommentsListAllController = function ($scope, $q, apiService, responseHandle
     }
 
     var columnDefs = [
-        {headerName: $filter('translate')("locations.location"), field: "title", width: 90, cellRenderer: 'group'},
+        {headerName: $filter('translate')("locations.location"), field: "subject_uuid", width: 90, cellRenderer: 'group'},
         {headerName: $filter('translate')("comments.body"), field: "body", width: 120},
         {headerName: $filter('translate')("author.author"), field: "user_uuid", width: 90},
         {headerName: $filter('translate')("comments.created"), field: "created", width: 90, cellRenderer: $scope.dateFormatter},
         {headerName: $filter('translate')("author.updated"), field: "updated", width: 90, cellRenderer: $scope.dateFormatter, sort: 'desc'},
         {headerName: $filter('translate')("locations.hidden"), field: "hidden", width: 90, cellRenderer: $scope.booleanFormatter }, //
-        {headerName: "", field: "uuid", width: 60, suppressFilter: true, cellRenderer: function (params) {      // Function cell renderer
-            if(params.node.data && !params.node.data.user_uuid) {
+        {headerName: "", field: "subject_uuid", width: 60, suppressFilter: true, cellRenderer: function (params) {      // Function cell renderer
+            if(params.node.data && params.node.data.subject_uuid) {
                 return '<a class="md-icon-button md-table-button md-raised  md-fab  md-mini " href="' + $scope.urlbase +  'locations/' + params.value + '" aria-label="' + $filter('translate')("actions.edit") + '"><md-icon md-font-icon="fa-eye" class="fa fa-eye"></md-icon></a>';
             } else { return '';}
         }
         },
         {headerName: "", field: "uuid", width: 60, suppressFilter: true, cellRenderer: function (params) {      // Function cell renderer
-            if(params.node.data && params.node.data.user_uuid) {
+            if(params.node.data && params.node.data.uuid) {
                 return '<a class="md-icon-button md-table-button md-raised  md-fab  md-mini " href="' + $scope.urlbase + 'admin/comments/' + params.value + '" aria-label="{{ \'actions.edit\' | translate }}"><md-icon md-font-icon="fa-pencil" class="fa fa-pencil"></md-icon></a>';
             } else { return '';}
         }
         },
         {headerName: "", field: "uuid", width: 60, suppressFilter: true, cellRenderer: function (params) {      // Function cell renderer
-            if(params.node.data && params.node.data.user_uuid) {
+            if(params.node.data && params.node.data.uuid) {
                 return '<a class="md-icon-button md-table-button md-raised  md-fab  md-mini " ng-click="clickDeleteHandler(\'' + params.value + '\')" aria-label="' + $filter('translate')("actions.delete") + '"><md-icon md-font-icon="fa-trash" class="fa fa-trash"></md-icon></a>';
             } else { return '';}
         }
