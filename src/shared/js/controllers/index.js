@@ -34,6 +34,7 @@ app.controller('Users.Update.Admin', require('./users/update-admin'));
 app.controller('Users.List', require('./users/list'));
 
 app.controller('Comments.List', require('./comments/list'));
+app.controller('Comments.ListAll', require('./comments/list-all'));
 app.controller('Comments.Show', require('./comments/show'));
 app.controller('Comments.Update', require('./comments/update'));
 
