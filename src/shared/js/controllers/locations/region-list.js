@@ -12,6 +12,7 @@ var LocationsRegionListController = function ($scope, $q, $location, $mdDialog, 
     var columnDefs = [
         {headerName: $filter('translate')("locations.title"), field: "title", width: 120 },
         {headerName: $filter('translate')("locations.street"), field: "street", width: 90},
+        {headerName: $filter('translate')("locations.postcode"), field: "postcode", width: 90},
         {headerName: $filter('translate')("author.created"), field: "created", width: 90, cellRenderer: $scope.dateFormatter},
         {headerName: $filter('translate')("author.updated"), field: "updated", width: 90, cellRenderer: $scope.dateFormatter, sort: 'desc'},
         {headerName: $filter('translate')("locations.hidden"), field: "hidden", width: 90, cellRenderer: $scope.booleanFormatter }, //
