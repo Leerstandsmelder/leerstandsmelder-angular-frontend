@@ -234,8 +234,11 @@ module.exports = {
         title: 'Titel',
         update_success: 'Eintrag erfolgreich aktualisiert..',
         create_post: 'Eintrag erstellen',
-      slug: 'Kurzform URL',
-      static: 'Statische Seite'
+        slug: 'Kurzform URL',
+        remove_confirm_title: 'Eintrag/Seiteninhalt löschen',
+        remove_confirm_body: 'Diese Aktion kann nicht rückgängig gemacht werden. Bist Du sicher?',
+        remove_success: 'Eintrag/Seiteninhalt wurde gelöscht',
+        static: 'Statische Seite'
     },
     regions: {
         settings: 'Einstellungen',

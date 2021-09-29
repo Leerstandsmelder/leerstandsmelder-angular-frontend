@@ -1,6 +1,6 @@
 'use strict';
 
-var PostsListController = function ($scope, $q, apiService, responseHandler, $location,  configuration, $filter) {
+var PostsListController = function ($scope, $q,$mdDialog ,$translate, apiService, responseHandler, $location,  configuration, $filter) {
     $scope.urlbase = configuration.urlbase || '/';
     $scope.settings = {
         pagesize: 25000,
@@ -19,9 +19,31 @@ var PostsListController = function ($scope, $q, apiService, responseHandler, $lo
             return '<a class="md-icon-button md-table-button md-raised  md-fab  md-mini " href="' + $scope.urlbase + 'admin/posts/' + params.value + '" aria-label="' + $filter('translate')("actions.edit") + '"><md-icon md-font-icon="fa-pencil" class="fa fa-pencil"></md-icon></a>';
         }
         },
+        {headerName: "", field: "uuid", width: 60, suppressFilter: true, cellRenderer: function (params) {      // Function cell renderer
+            return '<a class="md-icon-button md-table-button md-raised  md-fab  md-mini " ng-click="clickDeleteHandler(\'' + params.value + '\')" aria-label="' + $filter('translate')("actions.delete") + '"><md-icon md-font-icon="fa-trash" class="fa fa-trash"></md-icon></a>';
+        }
+        }
     ];
 
-    $scope.gridOptions.columnDefs = columnDefs;
+    $scope.gridOptions = {
+        columnDefs: columnDefs,
+        rowData: null,
+        rowHeight: 58,
+        rowClassRules: {
+            'hidden-warning': 'data.hidden'
+        },
+        enableSorting: true,
+        enableFilter: true,
+        enableColResize: true,
+        animateRows: true,
+        angularCompileRows: true,
+        getRowNodeId: function(data) { return data.uuid; },
+        onGridReady: function() {
+            setTimeout(function() {
+                $scope.gridOptions.api.sizeColumnsToFit();
+            }, 600);
+        }
+    };
 
     $scope.filterGrid = function() {
         $scope.gridOptions.api.setQuickFilter($scope.filterStr);
@@ -42,8 +64,29 @@ var PostsListController = function ($scope, $q, apiService, responseHandler, $lo
         }
     });
 
+    $scope.clickDeleteHandler = function (uuid) {
+        var confirm = $mdDialog.confirm()
+            .title($translate.instant('posts.remove_confirm_title'))
+            .textContent($translate.instant('posts.remove_confirm_body'))
+            .ariaLabel('posts.remove_confirm_title')
+            .ok($translate.instant('actions.ok'))
+            .cancel($translate.instant('actions.cancel'));
+        $mdDialog.show(confirm).then(function () {
+            var deferred = $q.defer();
+            $scope.promise = deferred.promise;
+            apiService('posts').actions.remove(uuid, function (err) {
+                var msgs = {
+                    success: 'posts.remove_success'
+                };
+                if (responseHandler.handleResponse(err, deferred, msgs)) {
+                    window.document.location.reload();
+                }
+            });
+        });
+    };
+
 };
 
-PostsListController.$inject = ['$scope', '$q', 'apiService', 'responseHandler', '$location', 'configuration', '$filter'];
+PostsListController.$inject = ['$scope', '$q', '$mdDialog', '$translate', 'apiService', 'responseHandler', '$location', 'configuration', '$filter'];
 
 module.exports = PostsListController;
