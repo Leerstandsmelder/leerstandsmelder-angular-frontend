@@ -11,7 +11,8 @@
     "build-web": "cross-env gulp build --env=web",
     "build-mobile": "cross-env gulp build --env=mobile",
     "dist-android": "cross-env NODE_ENV=production gulp build:android",
-    "dist-ios": "cross-env NODE_ENV=production gulp build:ios"
+    "dist-ios": "cross-env NODE_ENV=production gulp build:ios",
+    "dev": "cross-env gulp dev"
   },
   "author": "Gängeviertel e.V. <info@das-gaengeviertel.info>",
   "license": "MIT",
