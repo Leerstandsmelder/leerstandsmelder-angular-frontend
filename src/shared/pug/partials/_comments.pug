@@ -4,31 +4,31 @@ include ..//mixins/_buttons
 // todo: add contact button logic
 // todo: add flag this item for review
 
-p.md-body-1
-    strong {{ "comments.comment_plural" | translate }}
-div(ng-if="comments" ng-repeat="comment in comments")
-    p.md-body-1
-        | {{ 'author.by' | translate }}&nbsp;
-        strong {{ comment.user.nickname || user.nickname }}&nbsp;
-        span {{ 'author.on' | translate }} {{ comment.created | date : 'dd.MM.yy HH:mm' }}
-    p.md-body-1(marked="comment.body")
+md-subheader {{ "comments.comment_plural" | translate }}
+         
+md-card(flex="50" ng-if="comments" ng-repeat="comment in comments")
+    md-card-content(marked="comment.body")
+    md-card-actions(layout="row" layout-align="start center")
+        md-card-icon-actions
+        span.md-subhead {{ 'author.by' | translate }}&nbsp; {{ comment.user.nickname || user.nickname }}&nbsp;{{ 'author.on' | translate }} {{ comment.created | date : 'dd.MM.yy HH:mm' }} 
+            
 p(ng-if="comments.length === 0")
     small {{ "comments.no_comments" | translate }}
 hr
-div(check-login flex="50")
-    p.md-body-1
-        strong {{ "comments.new_comment" | translate }}
-    div(ng-if="userSession")
-        +input('textarea','new_comment.body','comments.comment_text', null, null)
-        div(layout="row" layout-align="end top")
-            img.captcha(captcha reset='resetCaptcha()')
-            div(flex layout-padding)
-                +input('text','new_comment.captcha','captcha.enter_captcha', null, null)
-        hr
-        div(layout="row")
-            span(flex)
-            +button_fab("actions.submit",'submitComment()','md-raised','fa-paper-plane',null)
-    div(ng-if="!userSession")
-        p
-            a(href="/users/login") {{ 'comments.new_comment_login' | translate }}
-            
+div(check-login flex="100")
+    md-card
+        md-card-title {{ "comments.new_comment" | translate }}
+        md-card-content 
+            div(ng-if="userSession")
+                +input('textarea','new_comment.body','comments.comment_text', null, null)
+                div(layout="row" layout-align="start top")
+                    img.captcha(captcha reset='resetCaptcha()')
+                    div(flex="40" layout-padding)
+                        +input('text','new_comment.captcha','captcha.enter_captcha', null, null)
+                hr
+                div(layout="row")
+                    span(flex)
+                    +button_fab("actions.submit",'submitComment()','md-raised','fa-paper-plane',null)
+            div(ng-if="!userSession")
+                p
+                    a(href="/users/login") {{ 'comments.new_comment_login' | translate }}
