@@ -16,7 +16,7 @@ div(layout="column" layout-gt-sm="row" layout-wrap layout-fill)
         div(ng-if="location.hidden == true && mayEdit")
           md-toast.md-success
             div.md-toast-content {{ 'locations.hidden_moderation' | translate}}
-        p    
+        h1
             strong {{location.title}}
             div(ng-if="location.demolished == true")
                 img(style="max-width:100%" src="/images/abgerissen.gif")
@@ -27,16 +27,59 @@ div(layout="column" layout-gt-sm="row" layout-wrap layout-fill)
         div( ng-if="photos.length > 0")
           div(ng-image-gallery  bg-close="true" img-bubbles="true" images="photos")
         div(ng-if="location.description" class="md-padding")
-            p(marked="location.description")
+            div(marked="location.description")
         hr
         div.md-body-1
-            p(ng-if="location.emptySince") {{ 'locations.empty_for' | translate }}: {{ location.emptySince | translate }}
-            p {{ 'locations.address' | translate }}: {{location.street || ('locations.unknown' | translate)}}
-            p {{ 'locations.city' | translate }}: {{location.postcode}} {{location.city || ('locations.unknown' | translate)}}
-            p {{ 'locations.degree' | translate }}: {{(location.degree | translate) || ('locations.unknown' | translate)}}
-            p {{ 'locations.demolished' | translate }}: {{(location.demolished ? ('locations.demolished_yes' | translate) : null) || ('site.no' | translate)}} &nbsp;
-            p {{ 'locations.demolition_rumor' | translate }}: {{(location.rumor ? ('locations.demolition_rumor_yes' | translate) : null) || ('locations.unknown' | translate)}}
-            p {{ 'locations.building_type' | translate }}: {{(location.buildingType | translate) || ('locations.unknown' | translate)}}
-            p {{ 'locations.owner' | translate }}: {{(location.owner | translate) || ('locations.unknown' | translate)}}
+         md-list(flex)
+          md-list-item.md-2-line
+            div.md-list-item-text(layout="column")
+              table.md-table
+                tr(ng-if="location.emptySince")
+                  td {{ 'locations.empty_for' | translate }}: 
+                  td {{ location.emptySince | translate }}
+          md-divider
+          md-list-item.md-2-line
+            div.md-list-item-text(layout="column")
+              table.md-table
+                tr
+                  td {{ 'locations.address' | translate }}: 
+                  td 
+                    | {{location.street || ('locations.unknown' | translate)}} <br />
+                    | {{location.postcode}} {{location.city || ('locations.unknown' | translate)}}
+          md-divider
+          md-list-item.md-2-line
+            div.md-list-item-text(layout="column")
+              table.md-table
+                tr
+                  td {{ 'locations.degree' | translate }}:
+                  td {{(location.degree | translate) || ('locations.unknown' | translate)}}
+          md-divider
+          md-list-item.md-2-line
+            div.md-list-item-text(layout="column")
+              table.md-table
+                tr
+                  td {{ 'locations.demolished' | translate }}: 
+                  td {{(location.demolished ? ('locations.demolished_yes' | translate) : null) || ('site.no' | translate)}} &nbsp;
+          md-divider
+          md-list-item.md-2-line
+            div.md-list-item-text(layout="column")
+              table.md-table
+                tr
+                  td {{ 'locations.demolition_rumor' | translate }}: 
+                  td {{(location.rumor ? ('locations.demolition_rumor_yes' | translate) : null) || ('locations.unknown' | translate)}}
+          md-divider
+          md-list-item.md-2-line
+            div.md-list-item-text(layout="column")
+              table.md-table
+                tr
+                  td {{ 'locations.building_type' | translate }}:
+                  td {{(location.buildingType | translate) || ('locations.unknown' | translate)}}
+          md-divider
+          md-list-item.md-2-line
+            div.md-list-item-text(layout="column")
+              table.md-table
+                tr
+                  td {{ 'locations.owner' | translate }}: 
+                  td {{(location.owner | translate) || ('locations.unknown' | translate)}}
         hr
         div(comments uuid='location.uuid' resource='locations')
