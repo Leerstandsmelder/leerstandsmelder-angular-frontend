@@ -66,7 +66,7 @@ div(layout="column" layout-gt-sm="row" layout-wrap layout-fill)
               table.md-table
                 tr
                   td {{ 'locations.demolition_rumor' | translate }}: 
-                  td {{(location.rumor ? ('locations.demolition_rumor_yes' | translate) : null) || ('locations.unknown' | translate)}}
+                  td {{(location.demolition_rumor ? ('locations.demolition_rumor_yes' | translate) : null) || ('locations.unknown' | translate)}}
           md-divider
           md-list-item.md-2-line
             div.md-list-item-text(layout="column")
