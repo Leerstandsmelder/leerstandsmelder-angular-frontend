@@ -95,7 +95,7 @@ var MapService = function ($http, assetPath) {
             $http({
                 method: 'GET',
                 url: 'https://nominatim.openstreetmap.org/search?format=json&q=' +
-                address.street + '+' + address.city + '+' + address.country
+                address.street + '+' + address.postcode + '+' + address.city + '+' + address.country
             }).then(function (message) {
                 callback(null, message);
             }).catch(function (data, status) {
