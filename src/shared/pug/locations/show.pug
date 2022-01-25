@@ -13,17 +13,18 @@ div(layout="column" layout-gt-sm="row" layout-wrap layout-fill)
             +button_fab('actions.back','regionOverview()','md-secondary','fa-arrow-left','location')
             span(ng-if='mayEdit')
                 +button_fab('actions.edit','edit()','md-primary','fa-edit','location')
-        div(ng-if="location.hidden == true && mayEdit")
-          md-toast.md-success.toast-content
-            div.md-toast-content {{ 'locations.hidden_moderation' | translate}}
         h1
             strong {{location.title}}
-            div(ng-if="location.demolished == true")
-                img(style="max-width:100%" src="/images/abgerissen.gif")
+        div(ng-if="location.demolished == true")
+            img(style="max-width:100%" src="/images/abgerissen.gif")
         p.metatext
             | {{ 'author.by' | translate }}&nbsp;
             strong {{ location.user.nickname }}&nbsp;
             span {{ 'author.on' | translate }} {{ location.created | date : 'dd.MM.yy' }}
+        span(ng-if="location.hidden == true && mayEdit")
+          md-toast.md-success.toast-content
+            div.md-toast-content {{ 'locations.hidden_moderation' | translate}}
+    
         div( ng-if="photos.length > 0")
           div(ng-image-gallery  bg-close="true" img-bubbles="true" images="photos")
         div(ng-if="location.description" class="md-padding")
