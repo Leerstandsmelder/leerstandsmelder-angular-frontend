@@ -1,6 +1,6 @@
 {
   "name": "leerstandsmelder-frontend",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Leerstandsmelder App - Angular.JS based frontend for Desktop & Mobile",
   "homepage": "https://www.leerstandsmelder.de",
   "scripts": {

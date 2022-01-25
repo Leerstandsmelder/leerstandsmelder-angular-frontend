@@ -14,7 +14,7 @@ div(layout="column" layout-gt-sm="row" layout-wrap layout-fill)
             span(ng-if='mayEdit')
                 +button_fab('actions.edit','edit()','md-primary','fa-edit','location')
         div(ng-if="location.hidden == true && mayEdit")
-          md-toast.md-success
+          md-toast.md-success.toast-content
             div.md-toast-content {{ 'locations.hidden_moderation' | translate}}
         h1
             strong {{location.title}}
