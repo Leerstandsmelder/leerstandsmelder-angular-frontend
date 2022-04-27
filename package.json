@@ -93,7 +93,7 @@
     "angular-translate-loader-static-files": "^2.12.1",
     "angular-translate-storage-cookie": "^2.12.1",
     "angular-translate-storage-local": "^2.12.1",
-    "async": "^2.1.1",
+    "async": "^2.6.4",
     "bluebird": "^3.5.1",
     "font-awesome": "^4.7.0",
     "leaflet": "^1.2.0",
