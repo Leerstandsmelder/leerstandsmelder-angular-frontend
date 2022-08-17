@@ -265,6 +265,7 @@ module.exports = {
         lang: 'Sprache',
         lang_de: 'Deutsch',
         lang_en: 'English',
+        lang_nl: 'Niederländisch',
         latest_posts: 'Neueste Einträge',
         no_latest_posts: 'Keine Neuesten Einträge',
         no: 'Nein',

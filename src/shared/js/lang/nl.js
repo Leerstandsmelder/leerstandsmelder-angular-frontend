@@ -265,7 +265,8 @@ module.exports = {
         lang: 'Language',
         lang_de: 'Deutsch',
         lang_en: 'English',
-        latest_posts: 'Recent Posts',
+        lang_nl: 'Nederlands',
+        latest_posts: 'NL Recent Posts',
         no_latest_posts: 'No Recent Posts',
         no: 'No',
         subnav: {

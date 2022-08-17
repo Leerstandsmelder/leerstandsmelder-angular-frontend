@@ -2,6 +2,7 @@
 
 var lang_de = require('../../shared/js/lang/de'),
     lang_en = require('../../shared/js/lang/en'),
+    lang_nl = require('../../shared/js/lang/nl'),
     routes = require('./routes'),
     angular = global.angular,
     agGrid = global.agGrid;
@@ -90,6 +91,7 @@ app.config([
             .preferredLanguage('de')
             .usePostCompiling(true)
             .translations('en', lang_en)
+            .translations('nl', lang_nl)
             .translations('de', lang_de);
 
         $animateProvider.classNameFilter(/animate-/);

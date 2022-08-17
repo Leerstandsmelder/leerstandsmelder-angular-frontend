@@ -143,3 +143,12 @@ md-toolbar.md-medium-tall.site-content-toolbar(ng-controller="Widgets.Navbar as 
                                     span.fa.fa-fw.fa-2x.fa-check-square-o(ng-if="lang_active=='en'")
                                     span.fa.fa-fw.fa-2x.fa-square-o(ng-if="lang_active!='en'")
                                 span(translate='site.lang_en')
+                        md-menu-item(layout="row" layout-align="start start")
+                            md-button.btn-default.btn-small(
+                            ng-click="useLanguage('nl')"
+                            aria-label='{{ "site.lang_nl" || translate }}'
+                            )
+                                md-icon
+                                    span.fa.fa-fw.fa-2x.fa-check-square-o(ng-if="lang_active=='nl'")
+                                    span.fa.fa-fw.fa-2x.fa-square-o(ng-if="lang_active!='nl'")
+                                span(translate='site.lang_nl')
