@@ -85,14 +85,15 @@ app.config([
         // TODO: check user preference with custom pref
         // see: http://angular-translate.github.io/docs/en/#/guide/11_custom-storages
         $translateProvider
-            .determinePreferredLanguage()
             .useLocalStorage()
             .useSanitizeValueStrategy('escaped')
-            .preferredLanguage('de')
+            .preferredLanguage('de_DE')
+            .determinePreferredLanguage()
             .usePostCompiling(true)
-            .translations('en', lang_en)
-            .translations('nl', lang_nl)
-            .translations('de', lang_de);
+            .translations('en_GB', lang_en)
+            .translations('en_US', lang_en)
+            .translations('nl_NL', lang_nl)
+            .translations('de_DE', lang_de);
 
         $animateProvider.classNameFilter(/animate-/);
 

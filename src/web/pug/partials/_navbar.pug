@@ -127,28 +127,28 @@ md-toolbar.md-medium-tall.site-content-toolbar(ng-controller="Widgets.Navbar as 
                         // Language Change
                         md-menu-item(layout="row" layout-align="start start")
                             md-button.btn-default.btn-small(
-                            ng-click="useLanguage('de')"
+                            ng-click="useLanguage('de_DE')"
                             aria-label='{{ "site.lang_de" || translate }}'
                             )
                                 md-icon
-                                    span.fa.fa-fw.fa-2x.fa-check-square-o(ng-if="lang_active=='de'")
-                                    span.fa.fa-fw.fa-2x.fa-square-o(ng-if="lang_active!='de'")
+                                    span.fa.fa-fw.fa-2x.fa-check-square-o(ng-if="lang_active=='de_DE'")
+                                    span.fa.fa-fw.fa-2x.fa-square-o(ng-if="lang_active!='de_DE'")
                                 span(translate='site.lang_de')
                         md-menu-item(layout="row" layout-align="start start")
                             md-button.btn-default.btn-small(
-                            ng-click="useLanguage('en')"
+                            ng-click="useLanguage('en_GB')"
                             aria-label='{{ "site.lang_en" || translate }}'
                             )
                                 md-icon
-                                    span.fa.fa-fw.fa-2x.fa-check-square-o(ng-if="lang_active=='en'")
-                                    span.fa.fa-fw.fa-2x.fa-square-o(ng-if="lang_active!='en'")
+                                    span.fa.fa-fw.fa-2x.fa-check-square-o(ng-if="lang_active=='en_GB' || lang_active=='en_US'")
+                                    span.fa.fa-fw.fa-2x.fa-square-o(ng-if="lang_active!='en_GB' || lang_active=='en_US'")
                                 span(translate='site.lang_en')
                         md-menu-item(layout="row" layout-align="start start")
                             md-button.btn-default.btn-small(
-                            ng-click="useLanguage('nl')"
+                            ng-click="useLanguage('nl_NL')"
                             aria-label='{{ "site.lang_nl" || translate }}'
                             )
                                 md-icon
-                                    span.fa.fa-fw.fa-2x.fa-check-square-o(ng-if="lang_active=='nl'")
-                                    span.fa.fa-fw.fa-2x.fa-square-o(ng-if="lang_active!='nl'")
+                                    span.fa.fa-fw.fa-2x.fa-check-square-o(ng-if="lang_active=='nl_NL'")
+                                    span.fa.fa-fw.fa-2x.fa-square-o(ng-if="lang_active!='nl_NL'")
                                 span(translate='site.lang_nl')
