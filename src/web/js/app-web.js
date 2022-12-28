@@ -87,16 +87,21 @@ app.config([
         $translateProvider
             .useLocalStorage()
             .useSanitizeValueStrategy('escaped')
-            .preferredLanguage('de_DE')
-            .determinePreferredLanguage()
             .usePostCompiling(true)
-            .translations('en_GB', lang_en)
             .translations('en', lang_en)
-            .translations('en_US', lang_en)
-            .translations('nl_NL', lang_nl)
+            .translations('en-GB', lang_en)
+            .translations('en-US', lang_en)
+            .translations('en-CA', lang_en)
             .translations('nl', lang_nl)
-            .translations('de_DE', lang_de)
+            .translations('nl-NL', lang_nl)
+            .translations('de-DE', lang_de)
             .translations('de', lang_de);
+
+        $translateProvider
+            .uniformLanguageTag('bcp47')
+            .fallbackLanguage('de')
+            .preferredLanguage('de')
+            .determinePreferredLanguage();
 
         $animateProvider.classNameFilter(/animate-/);
 
