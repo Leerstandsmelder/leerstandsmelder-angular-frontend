@@ -91,9 +91,12 @@ app.config([
             .determinePreferredLanguage()
             .usePostCompiling(true)
             .translations('en_GB', lang_en)
+            .translations('en', lang_en)
             .translations('en_US', lang_en)
             .translations('nl_NL', lang_nl)
-            .translations('de_DE', lang_de);
+            .translations('nl', lang_nl)
+            .translations('de_DE', lang_de)
+            .translations('de', lang_de);
 
         $animateProvider.classNameFilter(/animate-/);
 
