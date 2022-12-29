@@ -71,7 +71,7 @@
     "taco-team-build": "^0.2.4",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "webpack": "^3.8.1"
+    "webpack": "^5.75.0"
   },
   "dependencies": {
     "ag-grid": "^13.3.1",
